@@ -2,12 +2,20 @@
   "name": "Pdf Tracker",
   "description": "Chrome App that will help me keep track of all my pdfs",
   "version": "0.1",
+  // "default_locale": "en",
   "manifest_version": 2,
-  "app": {
-    "background": {
-      "scripts": ["background.js"]
-    }
-  }
-  // ,
+  "permissions": ["storage", "tabs","bookmarks"],
+  "content_scripts": [{
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["jquery-2.1.4.min.js", "index.js"]
+  }],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+  "default_icon": "icon.png"
+}
   // "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
 }
