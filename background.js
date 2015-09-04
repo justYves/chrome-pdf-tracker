@@ -6,10 +6,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
     chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-  chrome.bookmarks.getTree(function(data){
-    console.log(data);
-    chrome.tabs.sendMessage(activeTab.id,{"message": "get_bookmarks"},data);
+  chrome.bookmarks.search("pdf",function(data){
+    chrome.tabs.sendMessage(activeTab.id,{"message": "get_bookmarks", bookmarks: data});
     });
   });
-
 });
