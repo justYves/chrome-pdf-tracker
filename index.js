@@ -13,10 +13,11 @@ function findPdfs() {
   var firstHref = $("a[href^='http']").eq(0).attr("href");
   var pdfs = $("a[href*='pdf']");
 
+
+
   //this return current URL
   var currentURL = window.location.href;
   if (currentURL.indexOf('.pdf') > -1) {
-    console.log("it's a pdf!");
     findPage();
   }
   //this search for pdfs in page
@@ -31,6 +32,16 @@ function findPdfs() {
 }
 
 function findPage(){
+  var currentPdf = $("embed");
+  console.log(currentPdf);
+  console.log(`current PDF: ${currentPdf.context.URL}`);
+    console.log(`${currentPdf[0].innerHTML}`);
+  console.log($("#sizer"));
+  console.log($("::shadow #page-indicator"));
+  console.log(document.querySelectorAll('html /deep/ div'));
+  console.log(currentPdf.shadowRoot);
+   console.log($("[name='plugin']").webkitShadowRoot);
+
 
 }
 
